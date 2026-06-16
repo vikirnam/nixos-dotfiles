@@ -4,14 +4,15 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     bat
     ripgrep
   ];
 
   # Add go binaries to the PATH
-  home.sessionPath = ["$HOME/go/bin"];
+  home.sessionPath = [ "$HOME/go/bin" ];
 
   home.sessionVariables = {
     COLORTERM = "truecolor";
@@ -40,14 +41,14 @@
       size = 10000;
     };
 
-    profileExtra = lib.optionalString (config.home.sessionPath != []) ''
+    profileExtra = lib.optionalString (config.home.sessionPath != [ ]) ''
       export PATH="$PATH''${PATH:+:}${lib.concatStringsSep ":" config.home.sessionPath}"
     '';
 
     shellAliases = {
       # Change default
-      vim = "nvim";
-      vi = "nvim";
+      vim = "hx";
+      vi = "hx";
       cd = "z";
       ls = "eza --icons=always --no-quotes";
       tree = "eza --icons=always --tree --no-quotes";
