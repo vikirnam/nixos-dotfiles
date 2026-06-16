@@ -34,12 +34,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Server
-    nixarr.url = "github:rasmus-kirk/nixarr";
-    default-creds.url = "github:anotherhadi/default-creds";
-    blog.url = "github:anotherhadi/blog";
-    awesome-wallpapers.url = "github:anotherhadi/awesome-wallpapers";
-    iknowyou.url = "github:anotherhadi/iknowyou";
   };
 
   outputs = inputs @ {
@@ -68,9 +62,7 @@
       {
         formatter.${system} = pkgs.alejandra;
         nixosConfigurations = {
-          h-laptop = import ./hosts/laptop/flake.nix args;
-          h-work = import ./hosts/work/flake.nix args;
-          jack = import ./hosts/server/flake.nix args;
+          hyprcube = import ./hosts/hyprcube/flake.nix args;
         };
       }
     ];

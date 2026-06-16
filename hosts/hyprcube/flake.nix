@@ -10,7 +10,7 @@ nixpkgs.lib.nixosSystem {
       ];
       _module.args = {inherit inputs;};
     }
-    inputs.nixos-hardware.nixosModules.omen-16-n0005ne
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
     inputs.nix-index-database.nixosModules.default

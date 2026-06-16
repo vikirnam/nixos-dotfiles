@@ -1,7 +1,6 @@
 {config, ...}: {
   imports = [
     # Mostly system related configuration
-    ../../nixos/nvidia.nix # CHANGEME: Remove this line if you don't have an Nvidia GPU
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
     ../../nixos/fonts.nix
@@ -14,8 +13,6 @@
     ../../nixos/hyprland.nix
     ../../nixos/usbguard.nix
     ../../home/programs/helium/system.nix # I hate browser's configuration..
-
-    ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
 
     # You should let those lines as is
     ./hardware-configuration.nix
