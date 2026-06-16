@@ -44,14 +44,14 @@ in {
       DnsOverHttpsMode = "secure";
       DnsOverHttpsTemplates = "https://dns.quad9.net/dns-query";
 
-      DefaultSearchProviderEnabled = true;
-      DefaultSearchProviderName = "Startpage";
-      DefaultSearchProviderSearchURL = "https://www.startpage.com/do/search?q={searchTerms}";
-      DefaultSearchProviderSuggestURL = "https://www.startpage.com/do/suggest?q={searchTerms}";
+      # DefaultSearchProviderEnabled = true;
+      # DefaultSearchProviderName = "Duckduckgo";
+      # DefaultSearchProviderSearchURL = "https://www.startpage.com/do/search?q={searchTerms}";
+      # DefaultSearchProviderSuggestURL = "https://www.startpage.com/do/suggest?q={searchTerms}";
 
-      NewTabPageLocation = "http://127.0.0.1:8888";
+      # NewTabPageLocation = "http://127.0.0.1:8888";
       HomepageIsNewTabPage = false;
-      HomepageLocation = "http://127.0.0.1:8888";
+      # HomepageLocation = "http://127.0.0.1:8888";
       ShowHomeButton = false;
       RestoreOnStartup = 4;
 
@@ -61,7 +61,7 @@ in {
       ExtensionInstallForcelist = [
         "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimiu
         "gcknhkkoolaabfmlnjonogaaifnjlfnp" # FoxyProxy
-        "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
+        # "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
         "mdjildafknihdffpkfmmpnpoiajfjnjd" # Consent-O-Matic
         "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
       ];

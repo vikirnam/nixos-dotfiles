@@ -4,9 +4,16 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   c = config.lib.stylix.colors;
-  rgb = base: map lib.strings.toInt [c."${base}-rgb-r" c."${base}-rgb-g" c."${base}-rgb-b"];
+  rgb =
+    base:
+    map lib.strings.toInt [
+      c."${base}-rgb-r"
+      c."${base}-rgb-g"
+      c."${base}-rgb-b"
+    ];
 
   themeId = "abcadngacjlikcpkhleafekcdjmddegk";
   themeKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6t46VoE3mdV1QNMgybpmQLi5PtYHejnNrSj4DkBZyiTzMzs7Yyvg64f78w3QubZA5cTXSQ7FVhVHvv30I8ym/jNzsSN6reh1t4PtKsFjFRugAty8bfKJGD404HZLOFN2z3G9UPVLBBgzDH3DWbb/kcOq60Mlo/QDCIjsieZg0G3EYMl4efoThzYPWoyv0UEoiliwrE/AChxbgipQetUZ48bFhTCsmnYzCze7clssfTobzWtJJG0qFx76LauHKymRS5OTFfgsovKqHUSFJ202Q53vFdUPP/j8PjSPr1kZeg1NYc7Ba3MoA49EwtJf5ol9oYu05EEnSQ5+1AoYVmdE8QIDAQAB";
@@ -87,16 +94,19 @@
 
   baseWrapped = pkgs.symlinkJoin {
     name = "helium-wrapped";
-    paths = [originalPkg];
-    nativeBuildInputs = [pkgs.makeWrapper];
+    paths = [ originalPkg ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/helium \
         --run ${lib.escapeShellArg (toString patchScript)}
     '';
   };
 
-  wrappedPkg = baseWrapped // {override = _: baseWrapped;};
-in {
+  wrappedPkg = baseWrapped // {
+    override = _: baseWrapped;
+  };
+in
+{
   imports = [
     inputs.helium-browser.homeModules.default
     ./bookmarks
@@ -115,7 +125,10 @@ in {
     exec = "${config.programs.helium.package}/bin/helium %U";
     icon = "${config.programs.helium.package}/share/icons/hicolor/256x256/apps/helium.png";
     terminal = false;
-    categories = ["Network" "WebBrowser"];
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
     mimeType = [
       "text/html"
       "text/xml"
@@ -132,7 +145,14 @@ in {
     exec = "${config.programs.helium.package}/bin/helium --incognito %U";
     icon = "${config.programs.helium.package}/share/icons/hicolor/256x256/apps/helium.png";
     terminal = false;
-    categories = ["Network" "WebBrowser"];
-    mimeType = ["text/html" "text/xml" "application/xhtml+xml"];
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    mimeType = [
+      "text/html"
+      "text/xml"
+      "application/xhtml+xml"
+    ];
   };
 }
