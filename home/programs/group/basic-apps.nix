@@ -15,6 +15,7 @@
     switcheroo # Convert images between different formats
     signal-desktop # Messaging app
     librewolf # Backup browser
+    vscode
 
     # I love TUIs
     wikiman # Offline search engine for manual pages (arch wiki, tldr)
