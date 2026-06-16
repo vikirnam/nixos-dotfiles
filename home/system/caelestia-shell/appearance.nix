@@ -2,10 +2,12 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   inherit (config.theme) bar-rounding bar-thickness;
   inherit (config.stylix) fonts;
-in {
+in
+{
   home.packages = with pkgs; [
     papirus-icon-theme
   ];

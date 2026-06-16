@@ -2,7 +2,7 @@
   programs.caelestia.settings.bar = {
     clock.showIcon = false;
     popouts.activeWindow = false;
-    persistent = true;
+    persistent = false;
     status = {
       showBattery = true;
       showMicrophone = false;
