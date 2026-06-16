@@ -19,7 +19,7 @@
 
     git = {
       username = "vikirna";
-      email = "vikirna@proton.me"
+      email = "vikirna@proton.me";
     };
 
     autoUpgrade = false;
