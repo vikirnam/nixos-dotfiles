@@ -4,7 +4,8 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   border-size = config.theme.border-size;
   gaps-in = config.theme.gaps-in;
   gaps-out = config.theme.gaps-out;
@@ -14,7 +15,8 @@
   blur = config.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
   background = "rgba(" + config.lib.stylix.colors.base00 + "EE)";
-in {
+in
+{
   imports = [
     ./animations.nix
     ./bindings.nix
@@ -106,10 +108,7 @@ in {
           render_power = 3;
         };
         blur = {
-          enabled =
-            if blur
-            then "true"
-            else "false";
+          enabled = if blur then "true" else "false";
           size = 18;
         };
       };
@@ -123,9 +122,13 @@ in {
       gesture = "3, horizontal, workspace";
 
       windowrule = [
-        "match:class .*, suppress_event maximize"
-        "match:class helium, suppress_event fullscreen"
-        "match:class helium, sync_fullscreen false"
+        # "match:class .*, suppress_event maximize"
+        # "match:class helium, suppress_event fullscreen"
+        # "match:class helium, sync_fullscreen false"
+
+        "match:class signal, float on"
+        "match:class signal, center on"
+        "match:class signal, size 720 420"
 
         "match:class proton-authenticator, float on"
         "match:class proton-authenticator, center on"
