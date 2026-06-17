@@ -16,6 +16,7 @@
     signal-desktop # Messaging app
     librewolf # Backup browser
     vscode
+    zathura
 
     # I love TUIs
     wikiman # Offline search engine for manual pages (arch wiki, tldr)
