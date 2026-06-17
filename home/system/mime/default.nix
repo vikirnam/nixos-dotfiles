@@ -4,27 +4,28 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   defaultApps = {
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
     text = [
       # "org.gnome.TextEditor.desktop"
       "nvim-ghostty.desktop"
     ];
-    code = ["nvim-ghostty.desktop"];
-    image = ["imv-dir.desktop"];
-    audio = ["mpv.desktop"];
-    video = ["mpv.desktop"];
-    directory = ["thunar.desktop"];
-    office = ["libreoffice.desktop"];
-    pdf = ["zathura.desktop"];
-    terminal = ["ghostty.desktop"];
-    archive = ["xarchiver.desktop"];
-    browser = ["helium.desktop"];
+    code = [ "nvim-ghostty.desktop" ];
+    image = [ "imv-dir.desktop" ];
+    audio = [ "mpv.desktop" ];
+    video = [ "mpv.desktop" ];
+    directory = [ "thunar.desktop" ];
+    office = [ "libreoffice.desktop" ];
+    pdf = [ "zathura.desktop" ];
+    terminal = [ "ghostty.desktop" ];
+    archive = [ "xarchiver.desktop" ];
+    browser = [ "helium.desktop" ];
   };
 
   mimeMap = {
-    text = ["text/plain"];
+    text = [ "text/plain" ];
     code = [
       "text/x-csrc"
       "text/x-chdr"
@@ -90,7 +91,7 @@ with lib; let
       "video/x-matroska"
       "video/x-msvideo"
     ];
-    directory = ["inode/directory"];
+    directory = [ "inode/directory" ];
     office = [
       "application/vnd.oasis.opendocument.text"
       "application/vnd.oasis.opendocument.spreadsheet"
@@ -103,8 +104,8 @@ with lib; let
       "application/vnd.ms-powerpoint"
       "application/rtf"
     ];
-    pdf = ["application/pdf"];
-    terminal = ["terminal"];
+    pdf = [ "application/pdf" ];
+    terminal = [ "terminal" ];
     archive = [
       "application/zip"
       "application/rar"
@@ -132,12 +133,14 @@ with lib; let
     mimeTypes = mimeMap.code ++ mimeMap.text;
   };
 
-  associations = with lists;
+  associations =
+    with lists;
     listToAttrs (
       flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
     );
-in {
-  home.packages = [nvim-ghostty];
+in
+{
+  home.packages = [ nvim-ghostty ];
 
   xdg = {
     configFile."mimeapps.list".force = true;
