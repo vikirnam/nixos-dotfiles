@@ -5,9 +5,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   user = config.var.username;
-in {
+in
+{
   # ctrl + m to toggle the menubar
   home.packages =
     (with pkgs-stable; [
@@ -39,8 +41,8 @@ in {
     gtk3.bookmarks = [
       "file:///home/${user}/Downloads Downloads"
       "file:///home/${user}/Pictures Pictures"
-      "file:///home/${user}/.config/nixos NixOS"
-      "file:///home/${user}/dev Development"
+      "file:///home/${user}/Git/Dotfiles NixOS"
+      "file:///home/${user}/Git Development"
     ];
   };
 
