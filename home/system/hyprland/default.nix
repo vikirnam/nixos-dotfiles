@@ -128,7 +128,7 @@ in
 
         "match:class signal, float on"
         "match:class signal, center on"
-        "match:class signal, size 720 420"
+        "match:class signal, size (monitor_w*0.5) (monitor_h * 0.65)"
 
         "match:class proton-authenticator, float on"
         "match:class proton-authenticator, center on"
