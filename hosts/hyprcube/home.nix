@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     # Programs
     ../../home/programs/helium
@@ -37,7 +38,7 @@
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
     file.".face" = {
-      source = ./profile_picture.png;
+      source = ./profile_picture.jpg;
     };
 
     # Don't touch this
