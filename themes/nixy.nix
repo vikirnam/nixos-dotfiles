@@ -3,20 +3,21 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   options.theme = lib.mkOption {
     type = lib.types.attrs;
     default = {
-      rounding = 20;
-      bar-rounding = 20 + 10;
+      rounding = 4;
+      bar-rounding = 6;
       bar-thickness = 0;
-      gaps-in = 8;
-      gaps-out = 8 * 2;
+      gaps-in = 2;
+      gaps-out = 2 * 2;
       active-opacity = 0.96;
       inactive-opacity = 0.92;
       blur = true;
-      border-size = 2;
-      animation-speed = "medium"; # "fast" | "medium" | "slow"
+      border-size = 1;
+      animation-speed = "fast"; # "fast" | "medium" | "slow"
       fetch = "none"; # "nerdfetch" | "neofetch" | "pfetch" | "none"
     };
     description = "Theme configuration options";
@@ -74,9 +75,10 @@
     };
 
     polarity = "dark";
+    # TODO: reze
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/black-moutains-and-a-city.png";
-      sha256 = "sha256-RTTA3Lf+hnPpo9hwS075kbnIouz12ul2GKO3EIgP6AU=";
+      url = "https://codeberg.org/vikirna/Dotfiles/raw/branch/master/wallpapers/reze.png";
+      sha256 = "sha256-pu43fsggABWfL0akjZvMopxKt9xog2VcwjZmX+TZMgY=";
     };
   };
 }
