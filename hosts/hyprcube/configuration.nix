@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     # Mostly system related configuration
     ../../nixos/audio.nix
@@ -11,6 +12,7 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
+    ../../nixos/docker.nix
     ../../nixos/usbguard.nix
     ../../home/programs/helium/system.nix # I hate browser's configuration..
 
