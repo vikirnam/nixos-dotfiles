@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   cursorShaders = pkgs.fetchFromGitHub {
     owner = "sahaj-b";
     repo = "ghostty-cursor-shaders";
@@ -10,7 +11,8 @@
     hash = "sha256-G/UIr1bKnxn1AcHl/4FL/jou6b7M2VeREslYVELxdmw=";
   };
   c = config.lib.stylix.colors;
-in {
+in
+{
   home.sessionVariables = {
     TERMINAL = "ghostty";
     TERM = "ghostty";
@@ -28,8 +30,8 @@ in {
       clipboard-write = "allow";
       copy-on-select = "clipboard";
       app-notifications = false;
-      custom-shader = "${cursorShaders}/cursor_warp.glsl";
-      custom-shader-animation = "always";
+      # custom-shader = "${cursorShaders}/cursor_warp.glsl";
+      # custom-shader-animation = "always";
       keybind = [
         # "ctrl+j=goto_split:left"
         # "ctrl+i=goto_split:up"
