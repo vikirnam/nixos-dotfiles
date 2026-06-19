@@ -121,6 +121,7 @@ in
 
       # Windows
       "$mod,Q, killactive," # Close window
+      "$mod,Backspace, killactive," # Close window
       "$mod,F, fullscreen" # Toggle Fullscreen
       "$shiftMod,F, togglefloating," # Toggle Floating
 
