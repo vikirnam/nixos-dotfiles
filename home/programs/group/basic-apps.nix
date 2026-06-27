@@ -19,6 +19,7 @@
     vscode
     foliate
     # zathura
+    typst
 
     # I love TUIs
     wikiman # Offline search engine for manual pages (arch wiki, tldr)
