@@ -31,7 +31,7 @@ in
     qt6Packages.qt6ct
     xcb-util-cursor
     libxcb
-    hyprland-qtutils
+    # hyprland-qtutils
     adw-gtk3
     hyprshot
     hyprpicker

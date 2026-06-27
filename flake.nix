@@ -17,6 +17,11 @@
     helium-browser.url = "github:oxcl/nix-flake-helium-browser";
     nur-anotherhadi.url = "github:anotherhadi/nur-packages";
 
+    hyprland-guiutils.url = "github:faultypointer/hyprland-guiutils";
+    hyprland.inputs.hyprland-guiutils.follows = "hyprland-guiutils";
+    hyprgraphics.url = "github:hyprwm/hyprgraphics/68d0644";
+    hyprland.inputs.hyprgraphics.follows = "hyprgraphics";
+    hyprland-guiutils.inputs.hyprgraphics.follows = "hyprgraphics";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,25 +41,27 @@
 
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    nixpkgs-stable,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    args = {
-      inherit
-        inputs
-        nixpkgs
-        system
-        pkgs
-        ;
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-      pkgs-nur-hadi = inputs.nur-anotherhadi.packages.${system};
-    };
-    merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
-  in
+  outputs =
+    inputs@{
+      nixpkgs,
+      nixpkgs-stable,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      args = {
+        inherit
+          inputs
+          nixpkgs
+          system
+          pkgs
+          ;
+        pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+        pkgs-nur-hadi = inputs.nur-anotherhadi.packages.${system};
+      };
+      merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate { };
+    in
     merge [
       (import ./home/programs/nvf/flake.nix args)
       (import ./home/programs/group/flake.nix args)

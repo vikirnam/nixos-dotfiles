@@ -1,21 +1,23 @@
 {
   pkgs-stable,
   pkgs-nur-hadi,
+  pkgs,
   ...
 }:
 {
   home.packages = with pkgs-stable; [
     vlc # Video player
     mpv
-    obsidian # Note taking app
+    pkgs.obsidian # Note taking app
     textpieces # Manipulate texts
     resources # Ressource monitor
     gnome-clocks # Clocks app
     pinta # Image editor
     switcheroo # Convert images between different formats
-    signal-desktop # Messaging app
-    librewolf # Backup browser
+    pkgs.signal-desktop # Messaging app
+    # librewolf # Backup browser
     vscode
+    foliate
     # zathura
 
     # I love TUIs
