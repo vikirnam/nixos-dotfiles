@@ -6,7 +6,7 @@
     # ../../home/programs/proton
     # ../../home/programs/proton/auto-start-vpn.nix
     ../../home/programs/ghostty
-    ../../home/programs/nvf
+    # ../../home/programs/nvf
     ../../home/programs/helix
     ../../home/programs/shell
     ../../home/programs/git
