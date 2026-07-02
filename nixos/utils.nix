@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   hostname = config.var.hostname;
   keyboardLayout = config.var.keyboardLayout;
   configDir = config.var.configDirectory;
@@ -11,7 +12,8 @@
   defaultLocale = config.var.defaultLocale;
   # extraLocale = config.var.extraLocale;
   autoUpgrade = config.var.autoUpgrade;
-in {
+in
+{
   networking.hostName = hostname;
 
   networking.networkmanager.enable = true;
@@ -36,7 +38,7 @@ in {
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.addons = with pkgs; [fcitx5-gtk];
+    fcitx5.addons = with pkgs; [ fcitx5-gtk ];
   };
   # i18n.extraLocaleSettings = {
   #   LC_ADDRESS = extraLocale;
@@ -67,7 +69,7 @@ in {
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-    EDITOR = "nvim";
+    EDITOR = "hx";
   };
 
   services.libinput.enable = true;
@@ -88,7 +90,7 @@ in {
   };
 
   # enable zsh autocompletion for system packages (systemd, etc)
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = [ "/share/zsh" ];
 
   # Faster rebuilding
   documentation = {
@@ -128,14 +130,14 @@ in {
     enable = true;
     xdgOpenUsePortal = true;
     config = {
-      common.default = ["gtk"];
+      common.default = [ "gtk" ];
       hyprland.default = [
         "gtk"
         "hyprland"
       ];
     };
 
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   security = {
