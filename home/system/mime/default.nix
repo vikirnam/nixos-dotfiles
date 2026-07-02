@@ -10,9 +10,9 @@ let
     # check desktop files here: `ls $(echo $XDG_DATA_DIRS| sed "s/:/ /g")`
     text = [
       # "org.gnome.TextEditor.desktop"
-      "nvim-ghostty.desktop"
+      "helix-ghostty.desktop"
     ];
-    code = [ "nvim-ghostty.desktop" ];
+    code = [ "helix-ghostty.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
@@ -121,10 +121,10 @@ let
     ];
   };
 
-  nvim-ghostty = pkgs.makeDesktopItem {
-    name = "nvim-ghostty";
-    desktopName = "Neovim (Ghostty)";
-    exec = ''ghostty --title="Neovim Editor" -e nvim %F'';
+  helix-ghostty = pkgs.makeDesktopItem {
+    name = "helix-ghostty";
+    desktopName = "Helix (Ghostty)";
+    exec = ''ghostty --title="Helix Editor" -e hx %F'';
     terminal = false;
     categories = [
       "Development"
@@ -140,7 +140,7 @@ let
     );
 in
 {
-  home.packages = [ nvim-ghostty ];
+  home.packages = [ helix-ghostty ];
 
   xdg = {
     configFile."mimeapps.list".force = true;

@@ -57,12 +57,12 @@
 
       # Shortcuts
       spt = "spotatui";
-      v = "nvim";
+      v = "hx";
       c = "clear";
       e = "exit";
       open = "${pkgs.xdg-utils}/bin/xdg-open";
 
-      notes = "nvim ~/notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
+      # notes = "nvim ~/notes/index.md --cmd 'cd ~/notes' -c ':lua Snacks.picker.smart()'";
       nix-shell = "nix-shell --command zsh";
 
       # git
